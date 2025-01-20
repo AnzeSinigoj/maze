@@ -57,7 +57,89 @@ body {
 
 #klic:hover {
     opacity: 80%;
-    cursor: pointer;
+    cursor: pointer;* {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    
+    body {
+        background-image: url('slike/back.png');
+        background-size: cover; 
+        background-position: center;
+        background-repeat: no-repeat;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        overflow: hidden;
+    }
+    
+    #main {
+        width: 40vw;
+        height: 40vw;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    #glava {
+        width: 100%;
+        height: 15%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 10%;
+        padding: 0 5%;
+    }
+    
+    #glava img {
+        width: 100%;
+        height: auto;
+        max-width: 30%;
+    }
+    #klic {
+        background-color: red;
+        border-radius: 1vh;
+        padding: 0.5rem; 
+        font-size: 2rem; /
+        border: 0.3vh solid rgb(0, 0, 0);
+        width: 40%;
+        height: auto;
+        transition: opacity 0.2s ease;
+    }
+    
+    #klic:hover {
+        opacity: 0.8;
+    }
+    
+    #labirint {
+        width: 100%;
+        height: 70%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    #labirint > img {
+        width: 70%;
+        height: auto;
+    }
+    
+    #noga {
+        width: 100%;
+        height: 15%;
+        display: flex;
+        justify-content: center;
+    }
+    
+    #noga > img {
+        width: 100%;
+        height: auto;
+        max-width: 30%;
+    }
+    
     transition: 0.2s;
 } 
  
@@ -68,9 +150,10 @@ body {
     align-items: center;
 }
 
-#labirint > img{
+#labirint > svg{
     height: 100%;
     width: 70%;
+    object-fit: contain;
 }
 
 #noga {
@@ -83,4 +166,12 @@ body {
     margin-top: 1%;
     width: 100%;
     height: 90%;
+}
+
+#path {
+    fill: none;
+    stroke: #ff0000;
+    stroke-width: 3;
+    stroke-linecap: round;
+    stroke-linejoin: round;
 }
