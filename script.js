@@ -1,25 +1,25 @@
-document.getElementById("klic").addEventListener("click", animateSineWave);
+document.getElementById("path").setAttribute("stroke","none");
+document.getElementById("klic").addEventListener("click", animirajResitev);
 
-function animateSineWave() {
-    const polyline = document.getElementById("path"); // The solution polyline from the SVG
-    const totalLength = polyline.getTotalLength(); // Get the total length of the polyline
+function animirajResitev() {
+    const polyline = document.getElementById("path"); 
+    const totalLength = polyline.getTotalLength(); 
+    polyline.setAttribute("stroke","red");
 
-    polyline.style.strokeDasharray = totalLength; // Set the dash array to the polyline's total length
-    polyline.style.strokeDashoffset = totalLength; // Initially hide the path by offsetting the dash
+    polyline.style.strokeDasharray = totalLength; 
+    polyline.style.strokeDashoffset = totalLength; 
 
-    // Create the wave-like animation
     let offset = 0;
 
-    function animateWave() {
-        offset += 2; // Increment the offset to make the polyline move
+    function animiraj() {
+        offset += 2; 
 
-        // Set the strokeDashoffset to create the moving effect
         polyline.style.strokeDashoffset = totalLength - offset;
 
         if (offset < totalLength) {
-            requestAnimationFrame(animateWave); // Continue the animation
+            requestAnimationFrame(animiraj); 
         }
     }
 
-    animateWave(); // Start the animation
+    animiraj();
 }

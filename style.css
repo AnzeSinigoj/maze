@@ -103,7 +103,7 @@ body {
         background-color: red;
         border-radius: 1vh;
         padding: 0.5rem; 
-        font-size: 2rem; /
+        font-size: 2rem; 
         border: 0.3vh solid rgb(0, 0, 0);
         width: 40%;
         height: auto;
@@ -170,8 +170,21 @@ body {
 
 #path {
     fill: none;
-    stroke: #ff0000;
     stroke-width: 3;
     stroke-linecap: round;
     stroke-linejoin: round;
 }
+
+#slider{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    font-weight: bold;
+    color: red;
+}
+#power {
+    appearance: none;
+    background-color: #333;
+    border-radius: 1rem;
+    outline: none;
+  }
