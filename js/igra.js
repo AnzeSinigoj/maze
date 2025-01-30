@@ -5,6 +5,7 @@ var slider = document.getElementById('power');
 var pow_tekst = document.getElementById('power-val');
 
 slider.value = 0;
+let powerValues = []; 
 
 slider.addEventListener('input', function() {
     pow_tekst.textContent = slider.value + " W";
@@ -13,16 +14,33 @@ slider.addEventListener('input', function() {
 pot.setAttribute("stroke","none");
 qrm.setAttribute("stroke","none");
 
-sos_klic.addEventListener("click", narisiSOS);
-sos_klic.addEventListener("click", narisiQRM);
-sos_klic.addEventListener("click", prekini);
 
-function prekini(){
-    sos_klic.disabled = true
+sos_klic.addEventListener("click", startTransmission);
+
+
+function zapisiMoč() {
+    powerValues.push(parseInt(slider.value));
+}
+
+function sosAvdio() {
+    var audio = document.getElementById("avdio");
+    audio.play();
+
+}
+function avdioStop() {
+    var audio = document.getElementById("avdio");
+    audio.pause();  
+    audio.currentTime = 0;  
+}
+
+function startTransmission() {
+    sos_klic.disabled = true;
     sos_klic.style.cursor = "not-allowed";
 
-    slider.disabled = true;
-    slider.style.cursor = "not-allowed";
+    zapisiMoč(); 
+    narisiSOS();
+    narisiQRM();
+    sosAvdio();
 }
 
 function narisiSOS() {
@@ -37,6 +55,7 @@ function narisiSOS() {
 
     function animiraj() {
         offset += parseInt(slider.value);
+        zapisiMoč(); 
 
         pot.style.strokeDashoffset = totalLength - offset;
 
@@ -54,9 +73,9 @@ function narisiSOS() {
 
 function narisiQRM() {
     var totalLength = qrm.getTotalLength(); 
-    let QRM_pow = Math.floor(Math.random() * 5) + 1
 
-    qrm.setAttribute("stroke","black"); //nastavi nazaj na none black je za debug
+    qrm.setAttribute("stroke","black"); 
+
 
     qrm.style.strokeDasharray = totalLength; 
     qrm.style.strokeDashoffset = totalLength; 
@@ -64,6 +83,7 @@ function narisiQRM() {
     let offset = 0;
 
     function animiraj() {
+        let QRM_pow = Math.floor(Math.random() * 5) + 1;
         offset += QRM_pow;
 
         qrm.style.strokeDashoffset = totalLength - offset;
@@ -77,18 +97,45 @@ function narisiQRM() {
     }
 
     animiraj();
+
 }
 
 function konec(status) {
+    avdioStop();
+    let povprecje = izracunajPovprecje(powerValues); 
+    let tocke = izracunajTocke(povprecje); 
+
+    povprecje = povprecje.toFixed(2);
+
     if (status === "sos") {
-        alert("resili ste se!");
+        alert("Resili ste se! Povprečna moč: " + povprecje + " W. Dosežene točke: " + tocke + ".");
     } else {
-        alert("poguba!");
+        alert("Poguba! Povprečna moč: " + povprecje + " W. Dosežene točke: " + tocke + ".");
     }
 
     sos_klic.disabled = false;
     sos_klic.style.cursor = "pointer";
+}
 
-    slider.disabled = false;
-    slider.style.cursor = "pointer";
+function izracunajPovprecje(values) {
+    let sum = values.reduce((a, b) => a + b, 0); 
+    return sum / values.length; 
+}
+
+function izracunajTocke(povprecje) {
+    let tocke;
+
+    if (povprecje <= 1) {
+        tocke = 100; 
+    } else if (povprecje <= 2) {
+        tocke = 80;
+    } else if (povprecje <= 3) {
+        tocke = 50;
+    } else if (povprecje <= 4) {
+        tocke = 30;
+    } else {
+        tocke = 10; 
+    }
+
+    return tocke;
 }
