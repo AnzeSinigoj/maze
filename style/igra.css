@@ -57,7 +57,7 @@ body {
 }
 
 #klic:hover {
-    opacity: 80%;
+    opacity: 75%;
     cursor: pointer;
     transition: 0.2s;
 } 
