@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="sl">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="icon" type="image/x-icon" href="slike/ikona.png">
+        <link rel="stylesheet" href="style/home.css">
+        <title>SOS labirint</title>
+    </head>
+    <body>
+         <div id="main">
+            <h1>SOS Labirint</h1> 
+            <p>V gorah je prišlo do nezgode, telefon nima signala, ampak imaš pri sebi ročno radijsko postajo!</p> 
+            <p>Vendar pa je v zraku veliko interferenc (QRM). </p>
+            <p>Nastavi ustrezno moč oddaje na postaji in poišči rešitev, da se rešiš iz nezgode!</p>
+            <h2>Kako igrati:</h2>
+            <ol>
+                <li>Nastavi moč oddaje s pomočjo drsnika, ki se nahaja spodaj. Manjša moč pomeni več točk na koncu igre!</li>
+                <li>Ko si pripravljen, pritisni gumb <strong>SOS</strong> za začetek oddajanja.</li>
+                <li>Ko pritisneš gumb, bo začela oddajati signal, medtem pa bo naključno nastala interferenca (QRM), ki bo ovirala signal.</li>
+                <li>Cilj igre je, da z minimalno močjo oddajaš signal in se izogneš vplivu interference. Nižja moč pomeni več točk, vendar bodi pozoren na motnje.</li>
+                <li>Ko se signal odda do konca, boš videl rezultat in točke, ki jih dosežeš glede na povprečno moč oddaje. Če je bila moč prevelika, bodo točke nižje.</li>
+                <li>Interferenca bo naključno generirana, zato moraš prilagoditi moč oddaje in optimizirati signal!</li>
+            </ol>
+            
+            <button onclick="igraj()">Igraj</button>
+         </div>
+         <script src="js/home.js"></script>
+    </body>
+</html>
+
