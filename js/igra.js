@@ -36,6 +36,7 @@ function avdioStop() {
 function startTransmission() {
     sos_klic.disabled = true;
     sos_klic.style.cursor = "not-allowed";
+    powerValues = [];
 
     zapisiMoč(); 
     narisiSOS();
@@ -74,7 +75,7 @@ function narisiSOS() {
 function narisiQRM() {
     var totalLength = qrm.getTotalLength(); 
 
-    qrm.setAttribute("stroke","black"); 
+    qrm.setAttribute("stroke","black");
 
 
     qrm.style.strokeDasharray = totalLength; 

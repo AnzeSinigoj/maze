@@ -12,11 +12,11 @@
             <div id="glava">
                 <div id="car"><img src="slike/car.svg"></div>
                 <div id="radio"><img src="slike/radio.svg"></div>
-                <button id="klic">SOS</button>
+                <div id="placeholder"></div>
             </div>
             <div id="labirint">
                 <svg id="maze"  viewBox="0 0 500 500">
-                    <g fill="none" stroke="#000000" stroke-width="2" stroke-linecap="square">
+                    <g fill="none" stroke="red" stroke-width="2" stroke-linecap="square" >
                         <line x1="2" y1="2" x2="226" y2="2" />
                         <line x1="242" y1="2" x2="482" y2="2" />
                         <line x1="50" y1="18" x2="98" y2="18" />
@@ -443,6 +443,7 @@
             <p title="Transmission power">Tx power:</p>
             <input type="range" id="power"  min="0" max="5" step="1">
             <p id="power-val">0 W</p>
+            <button id="klic">SOS</button>
         </div>
         <audio id="avdio" loop>
             <source src="avdio/sos.mp3" type="audio/mp3">
