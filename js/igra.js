@@ -108,9 +108,9 @@ function konec(status) {
     povprecje = povprecje.toFixed(2);
 
     if (status === "sos") {
-        alert("Resili ste se! Povprečna moč: " + povprecje + " W. Dosežene točke: " + tocke + ".");
+        window.location.href = "zmaga.html?povprecje=" + povprecje + "&tocke=" + tocke;
     } else {
-        alert("Poguba! Povprečna moč: " + povprecje + " W. Dosežene točke: " + tocke + ".");
+        window.location.href = "zguba.html?povprecje=" + povprecje
     }
 
     sos_klic.disabled = false;
