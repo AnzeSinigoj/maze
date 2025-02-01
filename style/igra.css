@@ -17,6 +17,7 @@ body {
     height: 100vh;
 }
 
+
 #main {
     width: 40vw;
     aspect-ratio: 1;
@@ -25,7 +26,7 @@ body {
 }
 
 #glava {
-    height: 15%;
+    height: 20%;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -151,3 +152,15 @@ body {
     cursor: pointer;
     transition: 0.2s;
 } 
+
+@media only screen and (max-width: 750px) and (max-resolution: 192dpi) {
+    body{
+        gap: 0.5vw;
+    }
+   #main{
+    width: 70vw;
+   }
+   #slider{
+    width: 30vw;
+   }
+}

@@ -40,8 +40,10 @@ function startTransmission() {
 
     zapisiMoč(); 
     narisiSOS();
-    narisiQRM();
     sosAvdio();
+    setTimeout(() => {
+        narisiQRM();
+    }, 2000);
 }
 
 function narisiSOS() {
